@@ -1,4 +1,5 @@
 set hlsearch
+set highlightedyank
 set ignorecase
 set smartcase
 set visualbell
@@ -7,9 +8,11 @@ set clipboard+=unnamed
 
 let mapleader=" "
 
-""" .ideavimrc
-noremap <leader>co :edit ~/.ideavimrc<cr>
-noremap <leader>cs :source ~/.ideavimrc<cr>:nohlsearch<cr>
+" Define list of config files at the top
+let g:config_files = ['~/.config/dotfiles/actionlist.vim', '~/.ideavimrc']
+nnoremap <leader>co :for f in g:config_files \| execute 'edit ' . f \| endfor<CR>
+nnoremap <leader>cq :for f in g:config_files \| execute 'bdelete ' . f \| endfor<CR>
+noremap  <leader>cs :source ~/.ideavimrc<cr>
 
 """ Tools
 nnoremap <leader>to :action ActivateTerminalToolWindow<CR>
@@ -28,7 +31,9 @@ nmap [e <Action>(GotoPreviousError)
 
 
 """ Search
-nmap <leader>sc :nohl<CR>
+nmap <leader><leader> :nohl<CR>
+nmap <leader>sa <Action>(SearchEverywhere)
+nmap <leader>sc <Action>(SearchClasses)
 
 """ Editor navigation
 nmap H <Action>(PreviousTab)
@@ -42,3 +47,5 @@ nmap <leader>cf <Action>(ReformatCode)
 
 """ Run
 nmap <leader>rr <Action>(Run)
+nmap <leader>rd <Action>(Debug)
+nmap <leader>rq <Action>(Stop)
