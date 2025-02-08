@@ -1,0 +1,44 @@
+set hlsearch
+set ignorecase
+set smartcase
+set visualbell
+set number
+set clipboard+=unnamed
+
+let mapleader=" "
+
+""" .ideavimrc
+noremap <leader>co :edit ~/.ideavimrc<cr>
+noremap <leader>cs :source ~/.ideavimrc<cr>:nohlsearch<cr>
+
+""" Tools
+nnoremap <leader>to :action ActivateTerminalToolWindow<CR>
+" Open terminal where file is
+nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
+
+""" Source Navigation
+nmap [[ <Action>(Back)
+nmap ]] <Action>(Forward)
+
+nmap [m <Action>(MethodUp)
+nmap ]m <Action>(MethodDown)
+
+nmap ]e <Action>(GotoNextError)
+nmap [e <Action>(GotoPreviousError)
+
+
+""" Search
+nmap <leader>sc :nohl<CR>
+
+""" Editor navigation
+nmap H <Action>(PreviousTab)
+nmap L <Action>(NextTab)
+nmap J <Action>(NextSplitter)
+nmap K <Action>(PrevSplitter)
+
+""" Code Editing
+" Format file
+nmap <leader>cf <Action>(ReformatCode)
+
+""" Run
+nmap <leader>rr <Action>(Run)

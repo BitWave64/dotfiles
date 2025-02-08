@@ -1,2 +1,0 @@
-# dotfiles
-My workspace setup
