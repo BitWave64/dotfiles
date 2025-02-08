@@ -8,11 +8,22 @@ set clipboard+=unnamed
 
 let mapleader=" "
 
+function OpenConfig()
+    :edit ~/.config/dotfiles/actionlist.vim
+    :edit ~/.ideavimrc
+endfunction
+
+function CloseConfig()
+    :edit ~/.config/dotfiles/actionlist.vim
+    :q
+    :edit ~/.ideavimrc
+    :q
+endfunction
+
 " Define list of config files at the top
-let g:config_files = ['~/.config/dotfiles/actionlist.vim', '~/.ideavimrc']
-nnoremap <leader>co :for f in g:config_files \| execute 'edit ' . f \| endfor<CR>
-nnoremap <leader>cq :for f in g:config_files \| execute 'bdelete ' . f \| endfor<CR>
-noremap  <leader>cs :source ~/.ideavimrc<cr>
+nnoremap <leader>co :exec OpenConfig()<CR>
+nnoremap <leader>cq :exec CloseConfig()<CR>
+nnoremap <leader>cs :source ~/.ideavimrc<CR>
 
 """ Tools
 nnoremap <leader>to :action ActivateTerminalToolWindow<CR>
