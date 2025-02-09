@@ -1,10 +1,21 @@
-set hlsearch
+" feedback what you just yanked
 set highlightedyank
+" Search case-insensitive when lower case, case-sensitive when any uppercase in search term
 set ignorecase
 set smartcase
+" no beeps
 set visualbell
+" show line numbers
 set number
+" use system clipboard
 set clipboard+=unnamed
+" search as you type
+set incsearch
+" feedback on search
+set hlsearch
+
+" ideavim specific
+set ideastrictmode
 
 let mapleader=" "
 
@@ -39,6 +50,9 @@ nmap ]m <Action>(MethodDown)
 
 nmap ]e <Action>(GotoNextError)
 nmap [e <Action>(GotoPreviousError)
+
+nmap ]i <Action>(GotoImplementation)
+nmap ]d <Action>(GotoDeclaration)
 
 
 """ Search
